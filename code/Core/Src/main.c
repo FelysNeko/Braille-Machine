@@ -382,14 +382,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1){
-	  // servo motor 1&2
-//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-
-    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10)==GPIO_PIN_SET) {
-      for (int i=0; i<top; ++i) {
-        display(string[i]);
-      }
-    } else if ((initial_char=read()) && ('1'<=initial_char) && (initial_char<='9')) {
+    
+	  if ((initial_char=read()) && ('1'<=initial_char) && (initial_char<='9')) {
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
 		  HAL_Delay(100);
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
@@ -423,8 +417,6 @@ int main(void)
 
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
 			  HAL_Delay(70);
-
-        while (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_10)==GPIO_PIN_SET);
 		  }
 		  top = 0;
 	  }
