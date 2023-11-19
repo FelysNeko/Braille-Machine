@@ -282,6 +282,53 @@ void display(char c){
 		motor6_on(&htim3);
 	}
 
+}
+char read(void)
+{
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+
+	if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12)==GPIO_PIN_SET) {
+		return '1';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)==GPIO_PIN_SET) {
+		return '4';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)==GPIO_PIN_SET) {
+		return '7';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)==GPIO_PIN_SET) {
+		return '*';
+	}
+
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+
+	if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12)==GPIO_PIN_SET) {
+		return '2';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)==GPIO_PIN_SET) {
+		return '5';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)==GPIO_PIN_SET) {
+		return '8';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)==GPIO_PIN_SET) {
+		return '0';
+	}
+
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+
+	if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12)==GPIO_PIN_SET) {
+		return '3';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13)==GPIO_PIN_SET) {
+		return '6';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)==GPIO_PIN_SET) {
+		return '9';
+	} else if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15)==GPIO_PIN_SET) {
+		return '#';
+	}
+
+	return 0;
+}
 /* USER CODE END 0 */
 
 /**
