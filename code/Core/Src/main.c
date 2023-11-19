@@ -379,7 +379,30 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1){
+	  HAL_Delay(49);
+	  if(c=read()){
+		  counter = 0;
+		  c += 48;
+	  } else {
+		  ++counter;
+		  continue;
+	  }
 
+
+	  if (counter < 20) {
+		  continue;
+	  } else if (0<=c-prev && c-prev<=1 && counter<100) {
+		  ++c;
+		  counter = 0;
+	  } else {
+		  display(c);
+		  prev = 0;
+		  c = 0;
+		  counter = 0;
+	  }
+
+	  prev = c;
+  }
 
       /* USER CODE END WHILE */
       /* USER CODE BEGIN 3 */
