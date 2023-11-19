@@ -64,219 +64,233 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void motor1_on(TIM_HandleTypeDef *htim2){
+void motor1_on(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 990);
 }
-void motor2_on(TIM_HandleTypeDef *htim2){
+
+void motor2_on(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 1030);
 }
-void motor3_on(TIM_HandleTypeDef *htim2){
+
+void motor3_on(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1080);
 }
-void motor4_on(TIM_HandleTypeDef *htim3){
+
+void motor4_on(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 1080);
 }
-void motor5_on(TIM_HandleTypeDef *htim3){
+
+void motor5_on(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 1080);
 }
-void motor6_on(TIM_HandleTypeDef *htim3){
+
+void motor6_on(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1050);
 }
-void motor1_off(TIM_HandleTypeDef *htim2){
+
+void motor1_off(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 780);
 }
-void motor2_off(TIM_HandleTypeDef *htim2){
+
+void motor2_off(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 850);
 }
-void motor3_off(TIM_HandleTypeDef *htim2){
+
+void motor3_off(TIM_HandleTypeDef *htim2) {
 	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1010);
 }
-void motor4_off(TIM_HandleTypeDef *htim3){
+
+void motor4_off(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 1360);
 }
-void motor5_off(TIM_HandleTypeDef *htim3){
+
+void motor5_off(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 1250);
 }
-void motor6_off(TIM_HandleTypeDef *htim3){
+
+void motor6_off(TIM_HandleTypeDef *htim3) {
 	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1220);
 }
-void display(char c){
-	if(c == 'a'){
+
+
+void display(char c)
+{
+	if (c == 'a') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'b'){
+	} else if (c == 'b') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'c'){
+	} else if (c == 'c') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'd'){
+	} else if (c == 'd') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'e'){
+	} else if (c == 'e') {
 		motor1_off(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'f'){
+	} else if (c == 'f') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'g'){
+	} else if (c == 'g') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'h'){
+	} else if (c == 'h') {
 		motor1_off(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'i'){
+	} else if (c == 'i') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_off(&htim2);
 		motor4_off(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'j'){
+	} else if (c == 'j') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_off(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'k'){
+	} else if (c == 'k') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'l'){
+	} else if (c == 'l') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'm'){
+	} else if (c == 'm') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'n'){
+	} else if (c == 'n') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'o'){
+	} else if (c == 'o') {
 		motor1_off(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'p'){
+	} else if (c == 'p') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'q'){
+	} else if (c == 'q') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'r'){
+	} else if (c == 'r') {
 		motor1_off(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 's'){
+	} else if (c == 's') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_off(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 't'){
+	} else if (c == 't') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_off(&htim3);
 		motor5_on(&htim3);
 		motor6_off(&htim3);
-	}else if(c == 'u'){
+	} else if (c == 'u') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_on(&htim3);
-	}else if(c == 'v'){
+	} else if (c == 'v') {
 		motor1_off(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_on(&htim3);
 		motor6_on(&htim3);
-	}else if(c == 'w'){
+	} else if (c == 'w') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_off(&htim2);
 		motor4_off(&htim3);
 		motor5_on(&htim3);
 		motor6_on(&htim3);
-	}else if(c == 'x'){
+	} else if (c == 'x') {
 		motor1_on(&htim2);
 		motor2_off(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_on(&htim3);
-	}else if(c == 'y'){
+	} else if (c == 'y') {
 		motor1_on(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
 		motor4_on(&htim3);
 		motor5_off(&htim3);
 		motor6_on(&htim3);
-	}else if(c == 'z'){
+	} else if (c == 'z') {
 		motor1_off(&htim2);
 		motor2_on(&htim2);
 		motor3_on(&htim2);
@@ -284,8 +298,9 @@ void display(char c){
 		motor5_off(&htim3);
 		motor6_on(&htim3);
 	}
-
 }
+
+
 char read(void)
 {
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_SET);
@@ -332,6 +347,15 @@ char read(void)
 
 	return 0;
 }
+
+void wait(int t)
+{
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+  HAL_Delay(t);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+  HAL_Delay(100);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -381,26 +405,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1){
+  while (1) {
     
 	  if ((initial_char=read()) && ('1'<=initial_char) && (initial_char<='9')) {
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-		  HAL_Delay(100);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-		  HAL_Delay(100);
+		  wait(100);
 		  while (1) {
 			  if (read()=='#' || count>=2) {
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-				  string[top++] = (initial_char-49)*3+ 97 + count;
-				  HAL_Delay(300);
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-				  HAL_Delay(100);
+          string[top++] = (initial_char-49)*3+ 97 + count;
+				  wait(300);
 				  break;
 			  } else if (read()==initial_char) {
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-				  HAL_Delay(100);
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-				  HAL_Delay(100);
+				  wait(100);
 				  count++;
 			  }
 		  }
@@ -420,6 +435,7 @@ int main(void)
 		  }
 		  top = 0;
 	  }
+
 	}
 }
 /* USER CODE END WHILE */
