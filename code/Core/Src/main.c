@@ -411,12 +411,12 @@ int main(void)
 		  wait(100);
 		  while (1) {
 			  if (read()=='#' || count>=2) {
-          string[top++] = (initial_char-49)*3+ 97 + count;
+				  string[top++] = (initial_char-49)*3+ 97 + count;
 				  wait(300);
 				  break;
 			  } else if (read()==initial_char) {
-				  wait(100);
 				  count++;
+				  wait(100);
 			  }
 		  }
 		  count = 0;
