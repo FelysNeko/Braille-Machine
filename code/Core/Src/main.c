@@ -61,6 +61,226 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void motor1_off(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 1080);
+}
+void motor2_off(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 1080);
+}
+void motor3_off(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1080);
+}
+void motor4_off(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 1080);
+}
+void motor5_off(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 1080);
+}
+void motor6_off(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1080);
+}
+void motor1_on(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 1280);
+}
+void motor2_on(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 1280);
+}
+void motor3_on(TIM_HandleTypeDef *htim2){
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1280);
+}
+void motor4_on(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 880);
+}
+void motor5_on(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 880);
+}
+void motor6_on(TIM_HandleTypeDef *htim3){
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 880);
+}
+void display(char c){
+	if(c == 'a'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'b'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'c'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'd'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'e'){
+		motor1_off(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'f'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'g'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'h'){
+		motor1_off(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'i'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_off(&htim2);
+		motor4_off(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'j'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_off(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'k'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'l'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'm'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'n'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'o'){
+		motor1_off(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'p'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'q'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'r'){
+		motor1_off(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 's'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_off(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 't'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_off(&htim3);
+		motor5_on(&htim3);
+		motor6_off(&htim3);
+	}else if(c == 'u'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_on(&htim3);
+	}else if(c == 'v'){
+		motor1_off(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_on(&htim3);
+		motor6_on(&htim3);
+	}else if(c == 'w'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_off(&htim2);
+		motor4_off(&htim3);
+		motor5_on(&htim3);
+		motor6_on(&htim3);
+	}else if(c == 'x'){
+		motor1_on(&htim2);
+		motor2_off(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_on(&htim3);
+	}else if(c == 'y'){
+		motor1_on(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_on(&htim3);
+	}else if(c == 'z'){
+		motor1_off(&htim2);
+		motor2_on(&htim2);
+		motor3_on(&htim2);
+		motor4_on(&htim3);
+		motor5_off(&htim3);
+		motor6_on(&htim3);
+	}
 
 /* USER CODE END 0 */
 
