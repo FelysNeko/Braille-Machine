@@ -65,11 +65,11 @@ static void MX_ADC1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void motor1_on(TIM_HandleTypeDef *htim2) {
-	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 1080);
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 990);
 }
 
 void motor2_on(TIM_HandleTypeDef *htim2) {
-	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 1080);
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 1030);
 }
 
 void motor3_on(TIM_HandleTypeDef *htim2) {
@@ -85,31 +85,31 @@ void motor5_on(TIM_HandleTypeDef *htim3) {
 }
 
 void motor6_on(TIM_HandleTypeDef *htim3) {
-	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1080);
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1050);
 }
 
 void motor1_off(TIM_HandleTypeDef *htim2) {
-	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 880);
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_1, 780);
 }
 
 void motor2_off(TIM_HandleTypeDef *htim2) {
-	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 980);
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_2, 850);
 }
 
 void motor3_off(TIM_HandleTypeDef *htim2) {
-	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1000);
+	__HAL_TIM_SET_COMPARE(htim2,TIM_CHANNEL_3, 1010);
 }
 
 void motor4_off(TIM_HandleTypeDef *htim3) {
-	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 1280);
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_1, 1360);
 }
 
 void motor5_off(TIM_HandleTypeDef *htim3) {
-	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 1180);
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_2, 1250);
 }
 
 void motor6_off(TIM_HandleTypeDef *htim3) {
-	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1160);
+	__HAL_TIM_SET_COMPARE(htim3,TIM_CHANNEL_3, 1220);
 }
 
 
